@@ -366,7 +366,7 @@ return `<div class="logo" role="img" aria-label="رحلة نافس البحري�
 ${star(36,30,0,9)}${star(326,24,.6,11)}${star(300,70,1.1,7)}${star(60,74,1.4,7)}${star(180,8,.3,8)}</svg></div>`};
 const hp=s=>{let h=5381;for(const c of s)h=((h<<5)+h+c.charCodeAt(0))|0;return String(h)};
 const shipH=u=>{const s=stg(u);return `<span class="bob" style="filter:drop-shadow(0 0 ${s*3}px #ffd34d)">${veh(u.v,s,120+s*8)}<span style="font-size:30px;vertical-align:bottom">${CO[s]}</span></span>`};
-function login(){let ks=Object.keys(users);A.innerHTML=`<div class="c w">${LOGO()}<p>إبحر عبر ${N} جزيرة للتدرب على مهارات نافس في لغتي الجميلة</p>${GS()?'<p style="font-size:12px;opacity:.9">🌐 تُحفظ نتيجتك (الاسم والفصل) في لوحة الصدارة المشتركة، ويمكنك استعادة تقدمك إذا غيّرت جهازك.</p>':""}</div>
+function login(){let ks=Object.keys(users);A.innerHTML=`<div class="c w">${LOGO()}<p>ابحر عبر ${N} جزيرة للتدرب على مهارات نافس في لغتي الجميلة</p>${GS()?'<p style="font-size:12px;opacity:.9">🌐 تُحفظ نتيجتك (الاسم والفصل) في لوحة الصدارة المشتركة، ويمكنك استعادة تقدمك إذا غيّرت جهازك.</p>':""}</div>
 ${ks.length?`<div class="card"><b>طلاب على هذا الجهاز:</b>${ks.map(k=>`<button class="b s g" onclick="enter('${k.replace(/'/g,"\\'")}')">${e(users[k].n)} - فصل ${users[k].c}</button>`).join("")}</div>`:""}
 <div class="card"><b>طالب جديد</b><input id="nm" placeholder="الاسم الثلاثي"><select id="cl">${[1,2,3,4,5,6].map(i=>`<option>${i}</option>`).join("")}</select>
 <b>اختر مركبتك</b><div class="ships">${VS.map((s,i)=>`<div id="sh${i}" onclick="pick(${i})"><span>${veh(i,0,78)}</span>${s[0]}</div>`).join("")}</div>
