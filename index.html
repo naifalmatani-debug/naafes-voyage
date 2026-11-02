@@ -376,7 +376,8 @@ function info(){document.body.insertAdjacentHTML("beforeend",`<div class="ov" on
 <h4>🎯 الهدف</h4>يهدف الموقع إلى تدريب الطلاب على مهارات اختبار نافس في مادة لغتي الجميلة بأسلوب ممتع، وذلك لرفع جاهزيتهم وتعزيز دافعيتهم بالنجوم والشارات والألقاب، وتمكينهم من مراجعة أخطائهم والتدرب عليها دون أن يؤثر ذلك على نتيجتهم، كما يساعد المعلم على معرفة نسبة النجاح في كل مؤشر.
 <h4>👦 المستهدفون</h4>طلاب الصف السادس الابتدائي للتدرب على مهارات اختبار نافس، ومعلمو اللغة العربية لمتابعة مستوى طلابهم ومعرفة نقاط القوة والضعف.
 <h4>👨‍🏫 من قام به</h4>فكرة وإعداد وبرمجة وتنفيذ المعلم: نايف بن أحمد المعطاني<br>مدرسة ربيعة الرأي الابتدائية<br>بمساعدة أدوات الذكاء الاصطناعي
-<button class="b g" onclick="this.closest('.ov').remove()">حسنًا، لنبدأ الرحلة ⛵</button></div></div>`)}
+<button class="b s g" onclick="this.closest('.ov').remove();wel()">👋 رسالة الترحيب</button><button class="b g" onclick="this.closest('.ov').remove()">حسنًا، لنبدأ الرحلة ⛵</button></div></div>`)}
+function wel(){const u=U();document.body.insertAdjacentHTML("beforeend",`<div class="ov"><div class="card c" style="max-width:380px"><svg width="120" height="90" viewBox="0 0 640 480" style="border-radius:6px;box-shadow:0 2px 8px #0005"><g fill-rule="evenodd" transform="translate(80) scale(.9375)">${SAB}</g></svg><h2 style="margin:8px 0">أهلًا يا ${e(u.n.split(" ")[0])}! 🌊</h2><p style="font-size:17px;line-height:1.9">أبحر عبر <b>${N}</b> جزيرة للتدرب على مهارات نافس في لغتي الجميلة، وارفع علم المملكة العربية السعودية على جميع الجزر 🇸🇦</p><div style="text-align:right;line-height:2;margin:6px 0">⭐ اجمع النجوم، وأعد النموذج لتستردّ ما فاتك<br>🚢 تتطور مركبتك كل ٥ نماذج<br>🎖️ اجمع الشارات واصعد إلى لقب «الرحالة العظيم»</div><button class="b g" onclick="this.closest('.ov').remove()">ابدأ الرحلة ⛵</button></div></div>`)}
 function pick(i){window.pv=i;VS.forEach((x,j)=>document.getElementById("sh"+j).classList.toggle("on",i==j))}
 async function start(){const n=document.getElementById("nm").value.trim().replace(/\s+/g," ");if(n.split(" ").length<3){alert("اكتب الاسم الثلاثي");return}
 const c=document.getElementById("cl").value,k=n+"|"+c;const isNew=!users[k];if(isNew)users[k]={n,c,v:pv,d:{},rv:0,t:Date.now()};save();
@@ -390,8 +391,8 @@ const ptsU=u=>Object.values(u.d).reduce((a,x)=>a+pw(x),0),attU=u=>Object.values(
 const kbU=u=>{const r={};Object.values(u.d).forEach(x=>Object.entries(x.bk||x.sk).forEach(([k,v])=>{r[k]=r[k]||[0,0];r[k][0]+=v[0];r[k][1]+=v[1]}));return r};
 const hwr=h=>{let a=0,n=h.to-h.f+1;for(let m=h.f;m<=h.to;m++)if(U().d[m])a++;return[a,n]};
 function hwB(){if(!cur||!HWK.length)return"";return HWK.map(h=>{const[a,n]=hwr(h),ok=a==n,od=h.d<Date.now();return `<div class="hwc" style="background:${ok?"#c9f2d9":od?"#ffd6d6":"#fff3cf"}">📌 <b>واجب${h.t?": "+e(h.t):""}</b><br>الجزر من ${h.f} إلى ${h.to} (${e(NM(h.f))} ← ${e(NM(h.to))})<br>آخر موعد: ${dm(h.d)} · أنجزت ${a} من ${n}${ok?" ✅ أحسنت!":od?" ⏰ انتهى الموعد":""}${h.l&&!od?"<br>🔒 الجزر التالية تفتح عند نشر واجب جديد":""}</div>`}).join("")}
-async function hwl(){if(!GS()||!cur)return;try{const r=await rpc("hwGet",U().c);HWK=JSON.parse(r||"[]");if(cur&&document.querySelector(".map"))home()}catch(x){}}
-function enter(k){cur=k;home();hwl()}
+async function hwl(){if(!GS()||!cur)return;try{const r=await rpc("hwGet",U().c);{const x=JSON.parse(r||"[]");HWK=Array.isArray(x)?x:[]}if(cur&&document.querySelector(".map"))home()}catch(x){}}
+function enter(k){cur=k;home();hwl();const u=U();if(!u.wl){u.wl=1;save();if(dn(u)==0)wel()}}
 const U=()=>users[cur];
 function bar(){const u=U();return `<div class="w" style="display:flex;justify-content:space-between;align-items:center"><span>${e(u.n)}<br><small>🏅 ${ttl(u)} · ⭐ ${stars(u)}</small></span><button class="b s" onclick="login()">تغيير الطالب</button></div>`}
 function home(){const u=U(),d=dn(u),nx=Math.min(N,d+1);if(u.ch&&(!u.sy||u.sy<u.ch))sync();
