@@ -66,6 +66,7 @@ input,select,textarea{width:100%;padding:12px;border-radius:12px;border:2px soli
 .tb3{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px;margin:12px 0}
 .tb3 button{background:#fff;color:#12263a;border:0;border-radius:14px;padding:10px 4px;font-weight:700;font-size:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:0 3px 8px #0003}
 .tb3 i{font-style:normal;font-size:28px}
+.tb3.g2{grid-template-columns:repeat(4,1fr);gap:6px}.tb3.g1{grid-template-columns:1fr;margin-top:0}.tb3.g1 button{flex-direction:row;justify-content:center;font-size:14px;padding:10px}.tb3.g1 i{font-size:24px}.tb3.g2 button{font-size:11px;padding:8px 1px;border-radius:12px;line-height:1.3}.tb3.g2 i{font-size:24px}.tb3 small{font-size:11px;font-weight:400;opacity:.8}.lnk{background:none;border:0;color:#fff;opacity:.7;font-size:12px;text-decoration:underline;cursor:pointer;padding:6px 10px;font-family:inherit}
 .bd{display:inline-block;width:30%;text-align:center;font-size:12px;margin:3px 1%;vertical-align:top}.bd i{font-size:34px;display:block;font-style:normal}.bd.off{filter:grayscale(1);opacity:.35}
 table{width:100%;border-collapse:collapse;font-size:13px}td,th{border:1px solid #9bb;padding:5px;text-align:center}
 .hd{font-size:12px;text-align:center;line-height:1.7;border-bottom:2px solid #9bb;margin-bottom:8px}
@@ -420,8 +421,9 @@ function bar(){const u=U();return `<div class="w" style="display:flex;justify-co
 function home(){const u=U(),d=dn(u),nx=Math.min(N,d+1);if(u.ch&&(!u.sy||u.sy<u.ch))sync();
 A.innerHTML=bar()+`<div class="c w">${shipH(u)}<div>مركبتك ${ST[stg(u)]} · ${VS[u.v][0]} <button class="inf sm" onclick="evo()" aria-label="كيف تتطور مركبتي">❓</button></div><div class="bar"><i style="width:${d/N*100}%"></i></div><small>${d} من ${N} نموذجًا${stg(u)<6?" · المرحلة القادمة لمركبتك بعد "+(5-d%5)+" نماذج":" · وصلت إلى المرحلة الأسطورية 👑"}</small></div>
 ${hwB()}<div class="map">${Array.from({length:N},(_,i)=>{i++;const o=i<=d+1&&(i<=d||i<=hcap()),cl=(d>=i?"done ":"")+(o?"open ":"")+(i==nx?"me":"");return `<div class="isl ${cl}" ${o?`onclick="go(${i})"`:""}>${d<i&&HWK.some(h=>i>=h.f&&i<=h.to)?'<span class="hwb">📌</span>':""}<i>${isv(d>=i?"done":o?"open":"lock",i,100)}</i>${NM(i)}${d>=i?"<br>"+"⭐".repeat(u.d[i].st):""}</div>`}).join("")}</div>
-<div class="tb3"><button onclick="bdg()"><i>🎖️</i>الشارات ${BD.filter(b=>b[3](u)).length}/${BD.length}</button><button onclick="sk0()"><i>🎯</i>تدريب المهارات</button>${GS()?"":'<button onclick="rep()"><i>📋</i>تقرير المعلم</button>'}</div>
-<button class="b g" style="background:#fff" onclick="mapk()">🗺️ خريطة المملكة</button><button class="b g" style="background:#fff" onclick="wbk()">🧠 بنك أخطائي${(u.wb||[]).length?" ("+u.wb.length+")":""}</button>${GS()?'<button class="b g" style="background:#fff" onclick="lb()">🏅 لوحة الصدارة المشتركة</button>':""}<button class="b g" style="background:#fff;${dn(u)<N0?"opacity:.6":""}" onclick="cert()">🏆 شهادة الإنجاز${dn(u)<N0?" (تُمنح بعد إنجاز الجزر كلها)":""}</button><button class="b s g" onclick="dash()">لوحة المعلم</button>${FT}`}
+<div class="tb3 g2"><button onclick="trn()" aria-label="تدريبي"><i>🎯</i>تدريبي${(u.wb||[]).length?"<small>("+u.wb.length+")</small>":""}</button><button onclick="bdg()" aria-label="الشارات"><i>🎖️</i>الشارات<small>${BD.filter(b=>b[3](u)).length}/${BD.length}</small></button><button onclick="mapk()" aria-label="خريطة المملكة"><i>🗺️</i>الخريطة</button>${GS()?'<button onclick="lb()" aria-label="لوحة الصدارة"><i>🏅</i>الصدارة</button>':'<button onclick="rep()"><i>📋</i>التقرير</button>'}</div>
+<div class="tb3 g1"><button onclick="cert()" aria-label="شهادة الإنجاز"${dn(u)<N0?' style="opacity:.55"':""}><i>🏆</i>شهادة الإنجاز${dn(u)<N0?"<small>🔒 تُمنح بعد إنجاز الجزر كلها</small>":""}</button></div>
+<div style="text-align:center;margin-top:6px"><button class="lnk" onclick="dash()">👨‍🏫 لوحة المعلم</button></div>${FT}`}
 function go(m){document.body.insertAdjacentHTML("beforeend",`<div class="tr"><div class="sun"></div><div class="cl" style="top:20%;animation-delay:0s">☁️</div><div class="cl" style="top:30%;animation-delay:.5s;font-size:34px">☁️</div><div class="wv w1"></div><div class="di">${isv(U().d[m]?"done":"open",m,120)}</div><div class="wv w2"></div><div class="vs"><span class="bob" style="display:inline-block">${veh(U().v,stg(U()),150)}</span></div><div class="tt">⛵ إبحار نحو ${NM(m)}</div></div>`);setTimeout(()=>{document.querySelector(".tr").remove();intro(m)},2800)}
 function intro(m){const D=M[m];if(!D){quiz(m);return}const n=D.q.length,ks=[...new Set(D.q.map(q=>q[0]))];
 A.innerHTML=bar()+`<div class="card c"><div class="bob" style="display:inline-block">${isv(U().d[m]?"done":"open",m,160)}</div><h2>${NM(m)}</h2><small>نموذج ${m} من ${N}</small>
@@ -637,6 +639,13 @@ return best}
 function qrs(txt,px){const g=qrm(txt),n=g.length,q=4;let p="";g.forEach((r,y)=>r.forEach((c,x)=>{if(c)p+=`M${x+q} ${y+q}h1v1h-1z`}));return `<svg viewBox="0 0 ${n+2*q} ${n+2*q}" width="${px}" height="${px}" shape-rendering="crispEdges" role="img" aria-label="رمز QR"><rect width="100%" height="100%" fill="#fff"/><path d="${p}" fill="#000"/></svg>`}
 
 
+function trn(){const u=U(),L=(u.wb||[]).filter(k=>{const[m,i]=k.split(":");return M[m]&&M[m].q[i]}),sk={};u.wb=L;save();
+Object.values(u.d).forEach(x=>Object.entries(x.sk||{}).forEach(([k,v])=>{sk[k]=sk[k]||[0,0];sk[k][0]+=v[0];sk[k][1]+=v[1]}));
+const w=Object.entries(sk).filter(([k,v])=>v[1]>=2).map(([k,v])=>[k,Math.round(v[0]/v[1]*100)]).sort((a,b)=>a[1]-b[1])[0];
+A.innerHTML=bar()+`<div class="card c"><h3>🎯 تدريبي</h3><p style="font-size:14px">اختر طريقة التدريب:</p>
+${L.length?`<button class="b g" onclick="wbk()">🧠 مراجعة أخطائي (${L.length})</button><small>أسئلة أخطأت فيها من الجزر المختلفة.</small>`:`<div class="pt" style="margin:8px 0">🧠 بنك أخطائك فارغ، أحسنت! 🌟</div>`}
+<button class="b g" onclick="sk0()">📚 تدريب على مهارة</button><small>${w?`الأولى بالتدريب: <b>${SI[w[0]]} ${e(SK[w[0]])}</b> (${w[1]}%)`:"اختر مهارة وتدرّب على أسئلتها من جزرك المنجزة."}</small>
+<button class="b s g" onclick="home()">رجوع للخريطة</button></div>`}
 let WMP=[];
 function wbu(k,ok){const u=U();if(!u)return;u.wb=u.wb||[];const i=u.wb.indexOf(k);if(ok){if(i>=0)u.wb.splice(i,1)}else if(i<0)u.wb.push(k);save()}
 function wbk(){const u=U(),L=(u.wb||[]).filter(k=>{const[m,i]=k.split(":");return M[m]&&M[m].q[i]});u.wb=L;save();
