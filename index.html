@@ -36,21 +36,21 @@ input,select,textarea{width:100%;padding:12px;border-radius:12px;border:2px soli
 .pt{background:#e3eef6;border-radius:10px;padding:8px;font-size:13px;color:#12263a}
 .stars{font-size:34px;letter-spacing:4px}
 .bar{height:10px;background:#ffffff33;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac)}
-.tr{position:fixed;inset:0;z-index:9;overflow:hidden;background:linear-gradient(#ffb74d 0,#ffd89b 20%,#8fd8f5 42%,#1c7fb5 60%,#06324f);animation:fo 2.8s forwards}
+.tr{position:fixed;inset:0;z-index:9;overflow:hidden;background:linear-gradient(#ffb74d 0,#ffd89b 20%,#8fd8f5 42%,#1c7fb5 60%,#06324f);animation:fo 3.4s forwards}
 @keyframes fo{0%{opacity:0}10%,86%{opacity:1}100%{opacity:0;visibility:hidden}}
-.tr .sun{position:absolute;top:13%;right:16%;width:74px;height:74px;border-radius:50%;background:#fff3b0;box-shadow:0 0 60px 14px #ffe27a99;animation:sunr 2.8s ease-out forwards}
+.tr .sun{position:absolute;top:13%;right:16%;width:74px;height:74px;border-radius:50%;background:#fff3b0;box-shadow:0 0 60px 14px #ffe27a99;animation:sunr 3.4s ease-out forwards}
 @keyframes sunr{from{transform:translateY(60px)}to{transform:none}}
-.tr .cl{position:absolute;font-size:46px;opacity:.9;animation:cld 2.8s linear forwards}
+.tr .cl{position:absolute;font-size:46px;opacity:.9;animation:cld 3.4s linear forwards}
 @keyframes cld{from{transform:translateX(130vw)}to{transform:translateX(-40vw)}}
 .tr .wv{position:absolute;left:-10%;width:120%;border-radius:50% 50% 0 0/16px 16px 0 0;animation:wvm 1s ease-in-out infinite alternate}
 .tr .w1{background:#2a93c8;bottom:20%;height:26%}.tr .w2{background:#0b5f8f;bottom:0;height:22%;animation-duration:.8s}
 @keyframes wvm{to{transform:translateX(-5%) translateY(5px)}}
-.tr .vs{position:absolute;bottom:15%;left:50%;margin-left:-75px;animation:sail 2.8s ease-in-out forwards}
+.tr .vs{position:absolute;bottom:13%;left:50%;margin-left:-75px;animation:sail 3.4s ease-in-out forwards}
 .tr .vs svg image{transform:scaleX(-1);transform-box:fill-box;transform-origin:center}
-@keyframes sail{from{transform:translateX(260px)}55%{transform:translateX(-10px)}to{transform:translateX(-50px)}}
-.tr .di{position:absolute;bottom:38%;left:5%;opacity:0;transform-origin:bottom center;animation:isl 2.8s ease-out forwards}
+@keyframes sail{from{transform:translateX(280px)}60%{transform:translateX(100px)}to{transform:translateX(112px)}}
+.tr .di{position:absolute;bottom:33%;left:50%;margin-left:-185px;opacity:0;transform-origin:bottom center;animation:isl 3.4s ease-out forwards}.tr .di svg{filter:drop-shadow(0 12px 8px #0005)}
 @keyframes isl{0%{opacity:0;transform:scale(.2)}55%{opacity:1}100%{opacity:1;transform:scale(1)}}
-.tr .tt{position:absolute;top:6%;width:100%;text-align:center;color:#fff;font-weight:700;font-size:20px;text-shadow:0 2px 10px #0009}
+.tr .tt{position:absolute;top:6%;width:100%;text-align:center;color:#fff;font-weight:700;font-size:24px;text-shadow:0 2px 10px #0009}
 .logo{text-align:center;margin:2px auto 0;max-width:430px}.logo svg{width:100%;height:auto;overflow:visible;animation:lgin 1.1s cubic-bezier(.2,1.5,.4,1) both}
 @keyframes lgin{0%{opacity:0;transform:scale(.2) rotate(-12deg)}100%{opacity:1;transform:none}}
 .lgt{transform-origin:180px 80px;animation:lgf 3.2s ease-in-out infinite}@keyframes lgf{50%{transform:translateY(-4px) rotate(-1.2deg) scale(1.02)}}
@@ -437,9 +437,9 @@ ${hwB()}<div class="map">${Array.from({length:N},(_,i)=>{i++;const o=i<=d+1&&(i<
 <div class="tb3 g2"><button onclick="trn()" aria-label="تدريبي"><i>🎯</i>تدريبي${(u.wb||[]).length?"<small>("+u.wb.length+")</small>":""}</button><button onclick="bdg()" aria-label="الشارات"><i>🎖️</i>الشارات<small>${BD.filter(b=>b[3](u)).length}/${BD.length}</small></button><button onclick="mapk()" aria-label="خريطة المملكة"><i>🗺️</i>الخريطة</button>${GS()?'<button onclick="lb()" aria-label="لوحة الصدارة"><i>🏅</i>الصدارة</button>':'<button onclick="rep()"><i>📋</i>التقرير</button>'}</div>
 <div class="tb3 g1"><button onclick="cert()" aria-label="شهادة الإنجاز"${dn(u)<N0?' style="opacity:.55"':""}><i>🏆</i>شهادة الإنجاز${dn(u)<N0?"<small>🔒 تُمنح بعد إنجاز الجزر كلها</small>":""}</button></div>
 <div style="text-align:center;margin-top:6px"><button class="lnk" onclick="dash()">👨‍🏫 لوحة المعلم</button></div>${FT}`}
-function go(m){document.body.insertAdjacentHTML("beforeend",`<div class="tr"><div class="sun"></div><div class="cl" style="top:20%;animation-delay:0s">☁️</div><div class="cl" style="top:30%;animation-delay:.5s;font-size:34px">☁️</div><div class="wv w1"></div><div class="di">${isv(U().d[m]?"done":"open",m,120)}</div><div class="wv w2"></div><div class="vs"><span class="bob" style="display:inline-block">${veh(U().v,stg(U()),150)}</span></div><div class="tt">⛵ إبحار نحو ${NM(m)}</div></div>`);setTimeout(()=>{document.querySelector(".tr").remove();intro(m)},2800)}
+function go(m){document.body.insertAdjacentHTML("beforeend",`<div class="tr"><div class="sun"></div><div class="cl" style="top:20%;animation-delay:0s">☁️</div><div class="cl" style="top:30%;animation-delay:.5s;font-size:34px">☁️</div><div class="wv w1"></div><div class="di">${isv(U().d[m]?"done":"open",m,290)}</div><div class="wv w2"></div><div class="vs"><span class="bob" style="display:inline-block">${veh(U().v,stg(U()),165)}</span></div><div class="tt">⛵ إبحار نحو ${NM(m)}</div></div>`);setTimeout(()=>{document.querySelector(".tr").remove();intro(m)},3400)}
 function intro(m){const D=M[m];if(!D){quiz(m);return}const n=D.q.length,ks=[...new Set(D.q.map(q=>q[0]))];
-A.innerHTML=bar()+`<div class="card c"><div class="bob" style="display:inline-block">${isv(U().d[m]?"done":"open",m,160)}</div><h2>${NM(m)}</h2><small>نموذج ${m} من ${N}</small>
+A.innerHTML=bar()+`<div class="card c"><div class="bob" style="display:inline-block;filter:drop-shadow(0 8px 6px #0003)">${isv(U().d[m]?"done":"open",m,250)}</div><h2>${NM(m)}</h2><small>نموذج ${m} من ${N}</small>
 <div class="pt" style="text-align:right;margin:10px 0"><b>📍 عن الجزيرة (${IB[m-1][0]}):</b><br>${IB[m-1][1]}</div>
 <div class="pt" style="text-align:right;margin:10px 0">${D.t?"📜 ستقرأ نصًا أولًا ثم تجيب عن "+n+" أسئلة":"ستجيب في هذه الجزيرة عن "+n+" أسئلة"}<br><b>مهاراتك هنا:</b>${ks.map(k=>"<br>"+SI[k]+" "+SK[k]).join("")}</div>
 <button class="b g" onclick="quiz(${m})">انزل إلى الجزيرة 🏝️</button><button class="b s g" onclick="home()">رجوع للخريطة</button></div>`}
